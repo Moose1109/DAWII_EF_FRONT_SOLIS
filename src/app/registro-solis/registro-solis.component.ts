@@ -85,7 +85,7 @@ export class RegistroSolisComponent {
               descripcion: ''
           }
         };
-        this.router.navigate(['/listado']);
+        this.router.navigate(['/registrar']);
         
       },
       error => {
