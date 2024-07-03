@@ -1,0 +1,45 @@
+<div *ngIf="mensajeExitoRegistro" class="alert alert-success">
+    {{ mensajeExitoRegistro }}
+  </div>
+<div class="container">
+    <h1>Registrar Atencion</h1>
+    <form class="row g-3" (ngSubmit)="registrarAtencion()" >
+        
+      
+        
+        <div class="col-md-4">
+            <label for="codMascota" class="form-label">Mascota</label>
+            <select id="codMascota" class="form-select" name="codMascota" [(ngModel)] = "nuevaAtencion.codMascota">
+              <option  selected value="0">Seleccione...</option>
+              <option *ngFor="let  m of mascota" [value]="m.codMascota">{{m.nomMascota}}</option>
+            </select>
+          </div>
+        <div class="col-md-4">
+          <label for="idtipoAtencion" class="form-label">Tipo Atencion</label>
+          <select id="idtipoAtencion" class="form-select" name="idtipoAtencion" [(ngModel)] = "nuevaAtencion.idtipoAtencion">
+            <option selected value="0">Seleccione...</option>
+            <option *ngFor="let  ta of tipoAtencion" [value]="ta.idtipoAtencion">{{ta.descripcion}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="id_fechaprod" name="fecha" [(ngModel)] = "nuevaAtencion.fecha" placeholder="">
+          </div>  
+
+          <div class="col-md-6">
+            <label for="hora" class="form-label">Hora</label>
+            <input type="time" class="form-control" id="hora" name="hora" [(ngModel)] = "nuevaAtencion.hora" placeholder="Hora">
+          </div>  
+        
+        <div class="form-group d-flex">
+            <div class="col-sm-1">
+          <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+
+            <div class="col-sm-1 ">
+          <a routerLink="/listado" class="btn btn-info"> Consultar</a>
+        </div>
+        </div>
+      </form>
+</div>

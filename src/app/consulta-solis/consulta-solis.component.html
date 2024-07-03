@@ -1,0 +1,45 @@
+<br>
+<div *ngIf="mensajeExito" class="alert alert-success">
+    {{ mensajeExito }}
+  </div>
+
+<a routerLink="/registrar" class="btn btn-primary">Regresar</a>
+<br>
+
+<form (ngSubmit)="consultarPorFecha()">
+    <label for="fecha">Selecciona una fecha:</label>
+    <input type="date" id="fecha" name="fecha" [(ngModel)]="fecha" required>
+    <button type="submit">Buscar</button>
+    <button (click)="ngOnInit()">Listar Todas</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre Mascota</th>
+            <th scope="col">Nombre Dueño</th>
+            <th scope="col">Atencion</th>
+            <th scope="col">Importe</th>
+
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let  a of atencion">
+            <th scope="row">{{a.objMascota.nomMascota}}</th>
+
+            <td scope="row">{{a.objMascota.nomDueno }}</td>
+
+            <td scope="row">{{a.objTipoAtencion.descripcion}}</td>
+            <td scope="row">{{a.fecha}}</td>
+
+
+            <td><button  (click)="eliminarAtencion(a.codAtencion)" class="btn btn-outline-danger">Eliminar</button></td>
+        </tr>
+        
+   
+    </tbody>
+
+
+</table>
+
